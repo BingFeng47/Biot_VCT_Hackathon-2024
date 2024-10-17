@@ -1,4 +1,3 @@
-'use client'
 import Timeline from '@/components/timeline'
 import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'

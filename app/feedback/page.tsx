@@ -1,4 +1,3 @@
-'use client'
 import { FeedbackCard } from '@/components/feedback_card'
 import { AddComment } from '@/components/ui/add_comment'
 import { cookies } from 'next/headers';
