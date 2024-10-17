@@ -20,16 +20,16 @@ const features = [
         <Image
           src="/feature/bot-light.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
+          width={400}
+          height={400}
           className="absolute dark:hidden"
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
         <Image
           src="/feature/bot-dark.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
+          width={400}
+          height={400}
           className="absolute hidden dark:block"
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
@@ -51,16 +51,16 @@ const features = [
         <Image
           src="/feature/players-light.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
+          width={800}
+          height={800}
           className="absolute dark:hidden"
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
         <Image
           src="/feature/players-dark.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
+          width={800}
+          height={800}
           className="absolute hidden dark:block"
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
@@ -79,19 +79,21 @@ const features = [
         "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none",
         "relative"
       )}>
+
         <Image
           src="/feature/feedback-light.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
-          className="absolute dark:hidden"
+          width={800}
+          height={800}
+          className="absolute dark:hidden "
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
+
         <Image
           src="/feature/feedback-dark.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
+          width={800}
+          height={800}
           className="absolute hidden dark:block"
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
@@ -109,21 +111,21 @@ const features = [
     background: (
       <div className={cn(
         "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none",
-        "relative"
+        "relative w-full"
       )}>
         <Image
           src="/feature/documentation-light.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
+          width={400}
+          height={400}
           className="absolute dark:hidden"
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
         <Image
           src="/feature/documentation-dark.png"
           alt="Valorant"
-          width={screen.width}
-          height={200}
+          width={400}
+          height={400}
           className="absolute hidden dark:block"
           style={{ maskImage: "linear-gradient(to top, transparent, black)" }}
         />
