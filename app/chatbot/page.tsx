@@ -1,3 +1,4 @@
+'use client'
 import { ChatInit } from '@/components/chat_init'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import React from 'react'
