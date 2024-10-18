@@ -21,16 +21,18 @@ import Link from "next/link"
               <section className="w-full py-12 md:py-24 lg:py-32 xl:py-42 z-50">
               <div className="px-4 md:px-6">
                 <div className="flex flex-col items-center space-y-4 text-center -mt-24">
-                  <Bot className="w-30 h-30 sm:w-32 sm:h-32 lg:w-64 lg:h-64" />
+                  <div className="">
+                    <Bot className="lg:w-48 lg:h-48" />
+                  </div>
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  <SparklesText text="Welcome to Biot" sparklesCount={8} colors={{first: '#A07CFE', second: '#FE8FB5'}}/>
+                  <SparklesText className="lg:text-5xl" text="Welcome to Biot" sparklesCount={8} colors={{first: '#A07CFE', second: '#FE8FB5'}}/>
                   </h1>
-                  <p className="mx-auto max-w-[700px] text-gray-500 md:text-base lg:text-xl dark:text-gray-400">
+                  <p className="mx-auto max-w-[700px] text-gray-500 dark:text-gray-400 md:text-base lg:text-lg ">
                   Unleash the power of AI to find the best team compositions and player insights for competitive Valorant.
                   </p>
                   <Link href='/chatbot' className="flex flex-row lg:gap-8 gap-4 pt-5">
                   <Modal>
-                    <ModalTrigger className=" text-white bg-destructive flex justify-center group/modal-btn text-lg items-center px-8 font-semibold">
+                    <ModalTrigger className=" text-white bg-destructive flex justify-center group/modal-btn items-center px-8 font-semibold lg:text-sm ">
                       <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
                         Get Started!
                       </span>
@@ -39,7 +41,7 @@ import Link from "next/link"
                       </div>
                     </ModalTrigger>
                   </Modal>  
-                  <Button variant={"outline"} size={"lg"} className="text-lg py-6 font-semibold"><Link href='#features'>Learn More</Link></Button>  
+                  <Button variant={"outline"} size={"lg"} className="lg:text-sm py-6 font-semibold"><Link href='#features'>Learn More</Link></Button>  
                   </Link>           
                 </div>
               </div>
@@ -74,9 +76,9 @@ import Link from "next/link"
             </div>
 
             {/* Top Features */}
-            <section id='features' className="bg-secondary min-h-screen min-w-screen flex justify-center items-center">
+            <section id='features' className="bg-secondary min-h-screen min-w-screen flex justify-center items-center lg:py-20">
               <div className="lg:mx-40 mx-10 xs:2 flex gap-6 flex-grow">
-                <p className="text-5xl font-bold flex justify-center p-0 dark:text-white">KEY FEATURES</p>
+                <p className="lg:text-4xl font-bold flex justify-center dark:text-white">KEY FEATURES</p>
                 <Features />
               </div>
             </section>
@@ -84,7 +86,7 @@ import Link from "next/link"
             {/* Top Features */}
             <section className="bg-muted py-20 items-center">
               <div className="">
-                <p className="text-5xl font-bold flex justify-center dark:text-accent-foreground">SPECIAL THANKS</p>
+                <p className="text-2xl lg:text-4xl font-bold flex justify-center dark:text-accent-foreground">SPECIAL THANKS</p>
                 <SpecialThanks/>
               </div>
               

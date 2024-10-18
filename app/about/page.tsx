@@ -22,7 +22,7 @@ export default function AboutPage() {
           <Card >
             <CardContent className="p-6">
               <div className="flex flex-col items-center">
-                <div className="relative w-40 h-40 rounded-full overflow-hidden mb-4">
+                <div className="relative lg:w-32 lg:h-32 h-20 w-20 rounded-full overflow-hidden mb-4">
                   <Image
                     src="/about/puff.png"
                     alt="Calvin Koay"
@@ -30,10 +30,10 @@ export default function AboutPage() {
                     objectFit="cover"
                   />
                 </div>
-                <h2 className="text-5xl font-semibold mb-2">Calvin Koay</h2>
-                <caption className='text-sm -mt-2 pb-3 text-muted-foreground'>rjhong_92@hotmail.com</caption>
-                <p className="text-muted-foreground mb-4">Designer</p>
-                <p className="text-center">
+                <h2 className="text-lg lg:text-3xl font-semibold mb-2">Calvin Koay</h2>
+                <caption className='text-xs -mt-2 pb-2 text-muted-foreground'>rjhong_92@hotmail.com</caption>
+                <p className="text-muted-foreground mb-4 text-xs">Designer</p>
+                <p className="text-center  text-xs lg:text-sm">
                   Calvin brings over 10 years of industry experience and a passion for innovation. 
                   His leadership drives our team to push boundaries and achieve excellence.
                 </p>
@@ -45,7 +45,7 @@ export default function AboutPage() {
           <Card>
             <CardContent className="p-10">
                 <div className="flex flex-col items-center">
-                    <div className="relative w-40 h-40 rounded-full overflow-hidden mb-4">
+                    <div className="relative lg:w-32 lg:h-32 h-20 w-20 rounded-full overflow-hidden mb-4">
                     <Image
                         src="/about/pokemon2.png"
                         alt="Bing Feng"
@@ -53,10 +53,10 @@ export default function AboutPage() {
                         objectFit="contain"
                     />
                     </div>
-                    <h2 className="text-5xl font-semibold mb-2">Bing Feng</h2>
-                    <caption className='text-sm -mt-1 pb-3 text-muted-foreground'>limbingfeng000407@gmail.com</caption>
-                    <p className="text-muted-foreground mb-4">Developer</p>
-                    <p className="text-center">
+                    <h2 className="text-lg lg:text-3xl font-semibold mb-2">Bing Feng</h2>
+                    <caption className='text-xs -mt-1 pb-2 text-muted-foreground'>limbingfeng000407@gmail.com</caption>
+                    <p className="text-muted-foreground mb-4 text-xs">Developer</p>
+                    <p className="text-center text-xs lg:text-sm">
                     Bing is a tech visionary with a knack for solving complex problems. 
                     His expertise in cutting-edge technologies keeps us at the forefront of innovation.
                     </p>

@@ -87,8 +87,8 @@ export default function InternationalPlayerPage() {
                player.photo_url !== "https://lolstatic-a.akamaihd.net/esports-assets/production/player/zerost-4v5o369r.png" && 
                player.photo_url !== "https://s3.us-west-2.amazonaws.com/static.lolesports.com/players/default-headshot.png" ? `${player.photo_url}` : "http://static.lolesports.com/players/1632344314158_silhouette-female.png?w=50&h=50&fit=crop"}
                alt={player.handle}
-               width={200}
-               height={200}
+               width={100}
+               height={100}
                className="w-full overflow-hidden object-cover rounded-sm flex-2"
                loading="lazy"
              />

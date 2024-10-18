@@ -66,25 +66,25 @@ export default function RootLayout({
             
             
             <Link href={"/chatbot"}>
-              <Button variant= {"outline"} className="text-lg py-5">
+              <Button variant= {"outline"} className="lg:text-sm py-5">
                 AI Team Builder
               </Button>
             </Link>
 
             <Link href={"/players"}>
-              <Button variant= {"outline"} className="text-lg py-5">
+              <Button variant= {"outline"} className="lg:text-sm py-5">
                 Players
               </Button>
             </Link>
 
             <Link href={"/about"}>
-              <Button variant= {"outline"} className="text-lg py-5">
+              <Button variant= {"outline"} className="lg:text-sm py-5">
                 About Us
               </Button>
             </Link>
 
             <Link href={"/docs"}>
-              <Button variant= {"outline"} className="text-lg py-5">
+              <Button variant= {"outline"} className="lg:text-sm py-5">
                 Docs
               </Button>
             </Link>
@@ -111,7 +111,7 @@ export default function RootLayout({
             <a className="text-xs hover:underline underline-offset-4" href="#">
               <Github />
             </a>
-            <a className="text-xs hover:underline underline-offset-4" href="#">
+            <a className="text-xs hover:underline underline-offset-4" href="/docs">
               <Youtube />
             </a>
           </nav>

@@ -35,7 +35,7 @@ export const AceTimeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className="w-full bg-white dark:bg-inherit font-sans md:px-20" ref={containerRef} >
       <div className="max-w-screen py-20">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
+        <h2 className="text-lg md:text-4xl mb-2 text-black dark:text-white max-w-4xl">
           Competitive History
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm lg:text-lg md:text-base ">
@@ -47,7 +47,7 @@ export const AceTimeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-10 md:gap-20"
+            className="flex justify-start pt-10"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-destructive dark:bg-destructive flex items-center justify-center">
