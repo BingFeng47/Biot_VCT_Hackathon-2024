@@ -5,19 +5,19 @@ import MarkdownRenderer from './md'
 function ChatBubble({chat}:any) {
   return (
     <div>
-        <div className="flex flex-col justify-start items-start w-full gap-6">
+        <div className="flex flex-col justify-start items-start w-full gap-4">
 
             {chat.map((message: { avatar: string, chat: string }, index: number) => (
-                <div key={index} className="flex flex-col ">
-                    <div className="w-8 h-8">
+                <div key={index} className="flex flex-row items-center">
+                    <div className="pr-2">
                         {
                             message.avatar === 'bot' ?
-                            <Bot />
+                            <Bot className='w-6 h-6'/>
                             :
-                            <Cat />
+                            <Cat className='w-6 h-6'/>
                         }
                     </div>
-                    <div className="bg-accent p-4 rounded-lg">
+                    <div className="bg-accent p-3 rounded-lg">
                         <MarkdownRenderer markdown={message.chat} />
                     </div>
                 </div>

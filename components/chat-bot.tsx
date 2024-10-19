@@ -11,7 +11,7 @@ function ChatBot({loading, response, inputValue, setInputValue, onSubmit}:any) {
   return (
     // Chat Section
     <div className="flex-1 flex flex-col">
-        <Card className="flex-1 flex flex-col bg-transparent">
+        <Card className="flex-1 flex flex-col bg-transparent text-xs">
         <CardHeader>
             <CardTitle>Biot Team Builder</CardTitle>
         </CardHeader>
@@ -20,6 +20,7 @@ function ChatBot({loading, response, inputValue, setInputValue, onSubmit}:any) {
             <ScrollArea className="flex-1 max-h-[700px] overflow-auto">
                 <ChatBubble chat={response} />
             </ScrollArea>
+            
             <div className="flex mt-10">
             <Input
                 value={inputValue}

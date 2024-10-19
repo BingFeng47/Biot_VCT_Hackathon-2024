@@ -17,7 +17,7 @@ export function FeedbackCard({ avatar, name, email, comment }: FeedbackCardProps
                 <p className="text-xl font-bold mt-2 dark:text-white text-accent-foreground break-words truncate max-w-xs">
                   {name}
                 </p>
-                <p className="text-xs font-thin text-muted-foreground truncate max-w-xs">
+                <p className="text-xs font-thin text-muted-foreground overflow-hidden truncate max-w-32">
                   {email}
                 </p>
             </div>

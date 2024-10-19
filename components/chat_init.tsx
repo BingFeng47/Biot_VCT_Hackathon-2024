@@ -10,13 +10,13 @@ import ChatBot from "./chat-bot";
 const placeholders = [
   "Build a team using only players from VCT International.",
   "Rebibe me Jett",
-  "Assign roles to each player and explain why this composition would be effective in a competitive match.",
+  "Assign roles to each player and explain why this composition would be effective in a competitive match",
   "Build a team with at least 2 players from an underrepresented group",
   "Build a team with players from 3+ regions",
 ];
 
 const quickPrompt = [
-  "Build a team using only players from VCT International.",
+  "Build a team using only players from VCT International",
   "Build a team with players from 3+ regions",
 ];
 
@@ -129,10 +129,10 @@ export function ChatInit() {
           <div className="flex flex-col mt-4">
             <div className="flex flex-row gap-2">
               {quickPrompt.map((prompt, index) => (
-                <div key={index} className="bg-muted p-2 rounded-md cursor-pointer text-xs hover:bg-destructive hover:text-white"
+                <div key={index} className="bg-accent p-2 rounded-md cursor-pointer text-xs hover:bg-destructive hover:text-white"
                   onClick={() => {
                     setInputValue(prompt);
-                    onSubmit();
+                    onSubmit() // Ensure onSubmit is called after inputValue is set
                   }}>
                   {prompt}
                 </div>

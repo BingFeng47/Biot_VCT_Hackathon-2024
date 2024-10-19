@@ -49,15 +49,15 @@ const files = [
           )}
         >
           <Image
-            src={f.image}
-            alt="logo"
+            src={f.image.replace('.png', '-light.png')}
+            alt={`${f.name}`}
             width={200}
             height={200}
             className="dark:hidden block"
           />
           <Image
             src={f.image.replace('.png', '-dark.png')}
-            alt="logo"
+            alt={`${f.name}`}
             width={200}
             height={200}
             className="dark:block hidden"

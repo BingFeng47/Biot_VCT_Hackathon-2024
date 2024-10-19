@@ -3,11 +3,16 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const MarkdownRenderer = ({ markdown }:any) => {
+interface MarkdownRendererProps {
+  markdown: string;
+}
+
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdown }) => {
   return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-      {markdown}
-    </ReactMarkdown>
+    <ReactMarkdown 
+      remarkPlugins={[remarkGfm]} 
+      children={markdown} 
+    />
   );
 };
 
