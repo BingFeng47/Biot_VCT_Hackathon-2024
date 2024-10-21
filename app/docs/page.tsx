@@ -6,8 +6,8 @@ export default function DocsPage() {
   return (
     <div className="flex flex-col min-h-screen px-20 pt-10 gap-10">
         <h1 className="sm:text-4xl font-bold text-center mb-5 text-2xl text-muted-foreground">Documentation</h1>
-        <section id='youtube' className='px-10 w-full'>
-          <div className='flex gap-4 lg:flex-row flex-col'>
+        <section id='youtube' className='w-full px-28'>
+          <div className='flex gap-4 lg:flex-row flex-col items-center '>
             <Youtube/>
             <DocsFeatures/>
           </div>

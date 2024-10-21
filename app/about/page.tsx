@@ -32,7 +32,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-lg lg:text-3xl font-semibold mb-2">Calvin Koay</h2>
                 <caption className='text-xs -mt-2 pb-2 text-muted-foreground'>rjhong_92@hotmail.com</caption>
-                <p className="text-muted-foreground mb-4 text-xs">Designer</p>
+                <p className="text-muted-foreground mb-4 text-xs">Product Manager</p>
                 <p className="text-center  text-xs lg:text-sm">
                   Calvin brings over 10 years of industry experience and a passion for innovation. 
                   His leadership drives our team to push boundaries and achieve excellence.
@@ -50,7 +50,7 @@ export default function AboutPage() {
                         src="/about/pokemon2.png"
                         alt="Bing Feng"
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                     />
                     </div>
                     <h2 className="text-lg lg:text-3xl font-semibold mb-2">Bing Feng</h2>

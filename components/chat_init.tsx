@@ -2,7 +2,7 @@
 
 import { Bot } from "lucide-react";
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChatTeam from "./ui/chat-team";
 import ChatBot from "./chat-bot";
 
@@ -26,6 +26,35 @@ export function ChatInit() {
   const [responses, setResponse] = useState<{ avatar: string; chat: string }[]>([]);
   const [error, setError] = useState("");
   const [showElements, setShowElements] = useState(true);
+  const [players, setPlayers] = useState<string[]>([]);
+
+  const extractPlayerNames = (responses: { avatar: string; chat: string }[]) => {
+    const playerNamePattern = /\b(?!VCT\b)(?!KDA\b)(?:[A-Z]{2,4}\d?\s[A-Za-z0-9]+)\b/g;
+    const playerNames: string[] = [];
+
+    responses.forEach(response => {
+      const matches = response.chat.match(playerNamePattern);
+      if (matches) {
+        playerNames.push(...matches);
+      }
+    });
+
+    return playerNames;
+  };
+
+  // Example usage
+  useEffect(() => {
+    if (!loading) {
+      const playerNames = extractPlayerNames(responses);
+      setPlayers((prevPlayers) => {
+        const uniquePlayers = new Set([...prevPlayers, ...playerNames]);
+        return Array.from(uniquePlayers);
+      });
+    }
+  }, [loading, responses]);
+
+  // Initialize sessionId state
+  const [sessionId] = useState(() => crypto.randomUUID());
 
   // Function to fetch bot response
   const fetchBotResponse = async (chats: { avatar: string; chat: string }[]) => {
@@ -33,12 +62,16 @@ export function ChatInit() {
 
     try {
       setLoading(true); // Set loading state
-      const apiResponse = await fetch('http://localhost:8000/bot', {
+
+
+      const apiResponse = await fetch(`http://54.144.126.195/bot?sessionId=${sessionId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ chats }), // Send the correct structure
+        body: JSON.stringify({ 
+          chats
+        }), // Send the correct structure
       });
 
       if (!apiResponse.ok) {
@@ -142,13 +175,23 @@ export function ChatInit() {
         </div>
       )}
 
-      <div className="min-w-full">
+      <div className="w-full">
         {!showElements && (
-          <div className="px-10">
-            <div className="flex flex-3 flex-row gap-8">
-              <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
-              <ChatTeam />
+          <div>
+            {players.length > 0 ?
+            <div className="px-10 flex flex-row gap-4"> 
+                <div className="w-3/4">
+                  <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
+                </div>
+                <div className="animate-slide-in-right w-1/4">
+                  <ChatTeam players={players} />
+                </div>
             </div>
+            :
+            <div className="w-min-screen">
+              <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
+            </div>
+            }
           </div>
         )}
       </div>

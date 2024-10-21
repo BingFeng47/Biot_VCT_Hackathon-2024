@@ -173,7 +173,7 @@ const data = [
 
           <div className="mb-8">
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-lg">
-              ✅ Project Manager
+              ✅ Product Manager
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-lg">
               ✅ Developer
