@@ -64,7 +64,7 @@ export function ChatInit() {
       setLoading(true); // Set loading state
 
 
-      const apiResponse = await fetch(`http://54.144.126.195/bot?sessionId=${sessionId}`, {
+      const apiResponse = await fetch(`https://ocealab.co/bot?sessionId=${sessionId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
