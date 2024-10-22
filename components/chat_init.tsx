@@ -120,7 +120,7 @@ export function ChatInit() {
                   return [...prev, { avatar: 'bot', chat: char }];
                 }
               });
-              await new Promise(resolve => setTimeout(resolve, 4)); // Control typing speed (10 ms delay)
+              await new Promise(resolve => setTimeout(resolve, 2)); // Control typing speed (10 ms delay)
             }
           }
         }

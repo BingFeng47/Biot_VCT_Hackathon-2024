@@ -14,6 +14,7 @@ function YourTeam({id,tier,image,player_name, first_name, last_name, team, acron
               image !== "http://static.lolesports.com/players/1643734200321_silhouette_transparent.png" && 
               image !== "http://static.lolesports.com/players/1675077993344_silhouette_transparent.png" && 
               image !== "https://lolstatic-a.akamaihd.net/esports-assets/production/player/zerost-4v5o369r.png" && 
+              image !== "https://static.lolesports.com/players/1678371423205_silhouette_transparent.png" && 
               image !== "https://s3.us-west-2.amazonaws.com/static.lolesports.com/players/default-headshot.png" ? `${image}` 
               : "https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=50&h=50&fit=crop"} 
               alt="player_image"  width={200} height={200} className='rounded-lg object-contain'/>
