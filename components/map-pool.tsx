@@ -14,7 +14,7 @@ interface MapPoolProps {
 
 function MapPool({ maps }: MapPoolProps) {
     return (
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center'>
+        <div className='grid xs:grid-cols-1  sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-center'>
             {maps.map((Map, index) => {
                 const mapName = Object.keys(Map)[0];
                 const { numberOfPlays, numberOfWins, winRate } = Map[mapName];
@@ -30,7 +30,7 @@ function MapPool({ maps }: MapPoolProps) {
                                         className='rounded-sm'
                                     />
                             </div>
-                            <div className='flex flex-col justify-center text-xl'>
+                            <div className='flex flex-col justify-center'>
                                 <div className='font-bold pb-2 text-2xl text-accent-foreground'>{mapName}</div>
                                 <div className='text-muted-foreground'>Plays: {numberOfPlays}</div>
                                 <div className='text-muted-foreground'>Wins: {numberOfWins}</div>

@@ -62,18 +62,20 @@ export default function InternationalPlayerPage() {
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-col min-h-screen px-20">
 
-      <div className='flex flex-row justify-between w-full'>
+        {/* Search Section */}
+        <div className='flex flex-row justify-between w-full'>
 
-        <div className="flex justify-start pt-10 pb-10">
-          <h1 className="sm:text-4xl font-bold text-2xl text-muted-foreground">International Players</h1>
+          <div className="flex justify-start pt-10 pb-10">
+            <h1 className="sm:text-4xl font-bold text-2xl text-muted-foreground">International Players</h1>
+          </div>
+
+          <div className="flex justify-end pt-10 pb-10">
+            <input type="text" placeholder="Search player by name" className="border-2 rounded-lg pl-5 min-w-full" onChange={(e) => handleSearch(e.target.value)} value={search}></input>
+            <Button variant='destructive' className='mx-2' onClick={()=>handleSearch(search)}><Search></Search></Button>
+          </div>
+
         </div>
 
-        <div className="flex justify-end pt-10 pb-10">
-          <input type="text" placeholder="Search player by name" className="border-2 rounded-lg pl-5 min-w-full" onChange={(e) => handleSearch(e.target.value)} value={search}></input>
-          <Button variant='destructive' className='mx-2' onClick={()=>handleSearch(search)}><Search></Search></Button>
-        </div>
-
-      </div>
         {/* Players */}
         {players.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-6 pb-10">

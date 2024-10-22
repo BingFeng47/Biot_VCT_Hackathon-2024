@@ -76,7 +76,7 @@ export default function InternationalPlayerPage() {
       </div>
         {/* Players */}
         {players.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 2xl:grid-cols-6 gap-6 pb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-6 pb-10">
             {players.map((player) => (
             <Link href={`/players/international/${String(player.id)}`} key={player.id} className="h-72 flex flex-col  items-center bg-accent rounded-sm shadow-lg shadow-muted-foreground dark:shadow-black">
             <Image

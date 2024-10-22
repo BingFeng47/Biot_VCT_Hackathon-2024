@@ -48,7 +48,7 @@ type PlayerDetails = {
 };
 
 export default function PlayerPage() {
-  const { id } = useParams(); // Access the ID from the URL
+  const { id } = useParams(); 
   const supabase = createClientComponentClient();
   const [player, setPlayer] = useState<Player | null>(null); // Define state with Player type
   const [playerDetails, setPlayerDetails] = useState<PlayerDetails | null>(null); // Define state with Player type
@@ -146,7 +146,9 @@ export default function PlayerPage() {
 
   return (
     <div className="flex flex-col min-h-screen px-20">
-      <div id='playerDetails' className='pt-10 pb-10'>
+      <div id='playerDetails' className='py-10'>
+
+        {/* Player logo and name */}
         <div className='flex flex-row gap-8 items-center pb-6'>
           {/* check theme and use didfferent logo */}
             {currentTheme === 'dark' ? (
@@ -194,28 +196,26 @@ export default function PlayerPage() {
 
         </div>
 
-        <div className='flex flex-row gap-10'>
+        <div className='flex flex-row gap-4'>
           {isLoading && (
-            <div className="flex justify-center items-center text-center">
-              {/* <div className="loader text-center">Loading...</div> This can be a spinner or any loading indicator */}
+            <div className="">
+              <div className="loader text-center">Loading...</div> {/* This can be a spinner or any loading indicator */}
             </div>
           )}
           {player.photo_url ? (
-              <Image src={player.photo_url} alt={player.handle} width={400} height={400} className='rounded-lg' onLoadingComplete={() => setIsLoading(false)} />
+              <div className='w-1/4 flex'>
+                <Image src={player.photo_url} alt={player.handle} width={400} height={400} className='rounded-lg object-cover' onLoadingComplete={() => setIsLoading(false)} />
+              </div>
             ) : (
-              <Image src={'http://static.lolesports.com/players/1632344314158_silhouette-female.png?w=50&h=50&fit=crop'} width={400} height={400} alt={player.handle}  onLoadingComplete={() => setIsLoading(false)} />
+              <div className='w-1/4'>
+                <Image src={'https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=400&h=400&fit=crop'} width={400} height={400} alt={player.handle} className='rounded-lg object-cover' onLoadingComplete={() => setIsLoading(false)} />
+              </div>
+            
             )
           }
-
-          <div className='flex flex-col gap-6 justify-center items-start border-2 p-10 border-dashed rounded-lg'>
-            <h1 className='text-md'>Player Details</h1>
-            <h1 className='text-md'>Team: <span className='text-2xl pl-16'>{player.team}</span> </h1>
-            <h1 className='text-md'>First Name: <span className='text-2xl pl-6'>{player.first_name}</span> </h1>
-            <h1 className='text-md'>Last Name: <span className='text-2xl pl-6'>{player.last_name}</span> </h1>
-          </div>
           {
             playerDetails?(
-                <div className='flex flex-row flex-grow px-5 gap-5 border-2 border-dashed rounded-lg justify-evenly items-center'>
+                <div className='flex flex-row gap-5 border-2 border-dashed rounded-lg w-3/4 justify-evenly'>
                   <div className='flex items-center gap-5'>
                     <Swords width={55} height={55}/>
                     <div className='flex flex-col justify-start gap-1'>

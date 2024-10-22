@@ -5,6 +5,7 @@ import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 import { useEffect, useState } from "react";
 import ChatTeam from "./ui/chat-team";
 import ChatBot from "./chat-bot";
+import { Button } from "./ui/button";
 
 // Placeholder for the chat input
 const placeholders = [
@@ -17,7 +18,7 @@ const placeholders = [
 
 const quickPrompt = [
   "Build a team using only players from VCT International",
-  "Build a team with players from 3+ regions",
+  "Build a team with mixed gender players",
 ];
 
 export function ChatInit() {
@@ -31,27 +32,32 @@ export function ChatInit() {
   const extractPlayerNames = (responses: { avatar: string; chat: string }[]) => {
     const playerNamePattern = /\b(?!VCT\b)(?!KDA\b)(?:[A-Z]{2,4}\d?\s[A-Za-z0-9]+)\b/g;
     const playerNames: string[] = [];
-
-    responses.forEach(response => {
+  
+    responses.forEach((response) => {
       const matches = response.chat.match(playerNamePattern);
       if (matches) {
         playerNames.push(...matches);
       }
     });
-
+  
     return playerNames;
   };
-
+  
   // Example usage
   useEffect(() => {
     if (!loading) {
       const playerNames = extractPlayerNames(responses);
       setPlayers((prevPlayers) => {
-        const uniquePlayers = new Set([...prevPlayers, ...playerNames]);
-        return Array.from(uniquePlayers);
+        const newPlayers = playerNames.filter((name) => !prevPlayers.includes(name));
+        if (newPlayers.length === 0) {
+          // If there are no new players, return the previous array to avoid unnecessary updates
+          return prevPlayers;
+        }
+        const uniquePlayers = Array.from(new Set([...prevPlayers, ...newPlayers]));
+        return uniquePlayers;
       });
     }
-  }, [loading, responses]);
+  }, [loading]);
 
   // Initialize sessionId state
   const [sessionId] = useState(() => crypto.randomUUID());
@@ -147,6 +153,7 @@ export function ChatInit() {
     if (showElements) setShowElements(false); // Hide elements after first submission
   };
 
+
   return (
     <div className="h-screen flex flex-col items-center px-5">
       {showElements && (
@@ -165,7 +172,7 @@ export function ChatInit() {
                 <div key={index} className="bg-accent p-2 rounded-md cursor-pointer text-xs hover:bg-destructive hover:text-white"
                   onClick={() => {
                     setInputValue(prompt);
-                    onSubmit() // Ensure onSubmit is called after inputValue is set
+                    onSubmit()
                   }}>
                   {prompt}
                 </div>
@@ -184,7 +191,7 @@ export function ChatInit() {
                   <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
                 </div>
                 <div className="animate-slide-in-right w-1/4">
-                  <ChatTeam players={players} />
+                  <ChatTeam key={players.join(',')} players={players} />
                 </div>
             </div>
             :

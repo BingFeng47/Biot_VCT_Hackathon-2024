@@ -10,7 +10,7 @@ import ChatBubble from './chat-bubble';
 function ChatBot({loading, response, inputValue, setInputValue, onSubmit}:any) {
   return (
     // Chat Section
-    <div className="min-w-screen">
+    <div className="min-w-screen text-sm">
         <Card className="min-w-screen">
         <CardHeader>
             <CardTitle>Biot Team Builder</CardTitle>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { ScrollArea } from '@radix-ui/react-scroll-area';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -23,17 +23,18 @@ interface Player {
 function ChatTeam({ players: initialPlayers }: { players: string[] }) {
   const supabase = createClientComponentClient();
   const [players, setPlayers] = useState<Player[]>([]);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+    // const scrollAreaRef = useRef(null);
     const formattedPlayers = initialPlayers.map(player => {
       const parts = player.split(' ');
       return parts[parts.length - 1];
     });
     const fetchPlayers = async () => {
       const { data: playersData, error: playersError } = await supabase
-        .from('all_players')
-        .select('*')
-        .in('handle', formattedPlayers); // Fetch all players in one query
+    .from('all_players')
+    .select('*')
+    .or(formattedPlayers.map(player => `handle.ilike.${player}`).join(','));
 
       if (playersError) {
         console.error('Error fetching players:', playersError);
@@ -43,20 +44,24 @@ function ChatTeam({ players: initialPlayers }: { players: string[] }) {
       setPlayers(playersData || []); // Update state with fetched data
     };
 
+  useEffect(() => {
     if (initialPlayers.length > 0) {
       fetchPlayers();
+    }
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
     }
   }, []);
 
   return (
     <div className='lg:block sm:hidden'>
       {/* Team Players Section */}
-      <Card className="bg-transparent">
+      <Card className="bg-transparent text-sm">
         <CardHeader>
-          <CardTitle>Your Team</CardTitle>
+          <CardTitle>Players</CardTitle>
         </CardHeader>
         <CardContent>
-          <ScrollArea className="h-[calc(100vh-200px)] overflow-auto px-3">
+          <ScrollArea ref={scrollAreaRef} className="h-[calc(100vh-200px)] overflow-auto ">
             {players.map((player, index) => (
               <div key={index} className="flex items-center mb-4">
                 <YourTeam id={player.id} tier={player.tier} image={player.photo_url} player_name={player.player_name} first_name={player.first_name} last_name={player.last_name} team={player.team} acronym={player.acronym} dark_logo_url={player.dark_logo_url} light_logo_url={player.light_logo_url}/>
