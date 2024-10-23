@@ -6,15 +6,15 @@ export function Youtube() {
       <HeroVideoDialog
         className="dark:hidden block"
         animationStyle="top-in-bottom-out"
-        videoSrc="https://www.youtube.com/watch?v=PQJ-bKCpuZk"
-        thumbnailSrc="/docs/hero.png"
+        videoSrc="https://www.youtube.com/embed/2mgYJSymY9M"
+        thumbnailSrc="/docs/biot-cover.png"
         thumbnailAlt="Hero Video"
       />
       <HeroVideoDialog
         className="hidden dark:block"
         animationStyle="top-in-bottom-out"
-        videoSrc="https://www.youtube.com/watch?v=PQJ-bKCpuZk"
-        thumbnailSrc="/docs/hero.png"
+        videoSrc="https://www.youtube.com/embed/2mgYJSymY9M"
+        thumbnailSrc="/docs/biot-cover.png"
         thumbnailAlt="Hero Video"
       />
     </div>
