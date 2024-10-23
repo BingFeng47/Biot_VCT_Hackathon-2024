@@ -100,10 +100,10 @@ export default function RootLayout({
             <a className="text-xs hover:underline underline-offset-4" href="/docs">
               <BookText/>
             </a>
-            <a className="text-xs hover:underline underline-offset-4" href="#">
+            <a className="text-xs hover:underline underline-offset-4" href="https://github.com/BingFeng47/Biot_VCT_Hackathon-2024.git">
               <Github />
             </a>
-            <a className="text-xs hover:underline underline-offset-4" href="/docs">
+            <a className="text-xs hover:underline underline-offset-4" href="https://youtu.be/PQJ-bKCpuZk">
               <Youtube />
             </a>
           </nav>

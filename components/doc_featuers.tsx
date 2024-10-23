@@ -41,7 +41,7 @@ const features = [
     Icon: Github,
     name: "Github",
     description: "Find the code on Github",
-    href: "./",
+    href: "https://github.com/BingFeng47/Biot_VCT_Hackathon-2024.git",
     cta: "Github",
     className: "col-span-3 lg:col-span-1",
     background: (
@@ -106,7 +106,7 @@ const features = [
 
 export function DocsFeatures() {
   return (
-    <BentoGrid>
+    <BentoGrid >
       {features.map((feature, idx) => (
         <BentoCard key={idx} {...feature} />
       ))}
