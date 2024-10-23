@@ -56,13 +56,16 @@ The Valorant Team Builder AI Assistant is designed to help users create the best
 In selecting the AI model for our chatbot, we carefully evaluated several available options and ultimately chose Claude 3 Haiku due to its unique combination of features that align perfectly with our project’s needs.
 
 1. Low Token Cost
-   One of the primary reasons we selected Claude 3 Haiku is its efficiency in terms of token usage. Claude 3 Haiku operates with lower token consumption compared to many other large language models, which helps reduce operational costs, especially in high-traffic environments. This efficiency makes it ideal for sustained, large-scale chatbot applications where minimizing token usage is crucial to maintaining cost-effectiveness.
+
+- One of the primary reasons we selected Claude 3 Haiku is its efficiency in terms of token usage. Claude 3 Haiku operates with lower token consumption compared to many other large language models, which helps reduce operational costs, especially in high-traffic environments. This efficiency makes it ideal for sustained, large-scale chatbot applications where minimizing token usage is crucial to maintaining cost-effectiveness.
 
 2. Natural and Contextual Conversations
-   Claude 3 Haiku excels at generating natural, context-aware responses. This makes it particularly well-suited for chatbots, where providing fluid and relevant replies is essential for a high-quality user experience. Its ability to maintain the context of the conversation across multiple exchanges enhances the chatbot’s utility in a dynamic environment.
+
+- Claude 3 Haiku excels at generating natural, context-aware responses. This makes it particularly well-suited for chatbots, where providing fluid and relevant replies is essential for a high-quality user experience. Its ability to maintain the context of the conversation across multiple exchanges enhances the chatbot’s utility in a dynamic environment.
 
 3. Scalability and Integration
-   The model is highly scalable and integrates seamlessly with the existing AWS infrastructure we are using, including Bedrock and RAG for improved response quality. This makes Claude 3 Haiku a strategic choice that supports the broader system architecture efficiently, without requiring extensive custom integrations.
+
+- The model is highly scalable and integrates seamlessly with the existing AWS infrastructure we are using, including Bedrock and RAG for improved response quality. This makes Claude 3 Haiku a strategic choice that supports the broader system architecture efficiently, without requiring extensive custom integrations.
 
 By selecting Claude 3 Haiku, we ensure that our chatbot is both cost-efficient and capable of delivering high-quality, contextually accurate responses while maintaining flexibility and scalability for future growth.
 
