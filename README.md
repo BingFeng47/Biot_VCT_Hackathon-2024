@@ -1,7 +1,7 @@
 # ✨ Biot
 
 WebApp: [Biot: AI Valorant Esports Team Manager](https://biot.vercel.app)\
-Youtube: [Watch Our Demo Here!](https://youtu.be/PQJ-bKCpuZk)
+Youtube: [Watch Our Demo Here!](https://youtu.be/2mgYJSymY9M)
 
 The Valorant Team Builder AI Assistant is designed to help users create the best possible team for competing in international Valorant tournaments. By leveraging historical data and advanced LLM, this assistant provides reliable and strategic team formation suggestions.
 
