@@ -103,7 +103,7 @@ export default function RootLayout({
             <a className="text-xs hover:underline underline-offset-4" href="https://github.com/BingFeng47/Biot_VCT_Hackathon-2024.git">
               <Github />
             </a>
-            <a className="text-xs hover:underline underline-offset-4" href="https://youtu.be/PQJ-bKCpuZk">
+            <a className="text-xs hover:underline underline-offset-4" href="https://youtu.be/2mgYJSymY9M">
               <Youtube />
             </a>
           </nav>
