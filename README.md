@@ -31,7 +31,7 @@ The Valorant Team Builder AI Assistant is designed to help users create the best
 
 ## ⚙️ System Architecture
 
-![System Architecture]("https://1drv.ms/i/s!Amw2u5O1JVLXnMFYxelCA7cQg0pQ5g?embed=1&width=2338&height=786")
+<img width="1169" alt="workflow" src="https://github.com/user-attachments/assets/2f68d4ff-857e-48bc-a62d-4813429595da">
 
 ### AWS Services
 
