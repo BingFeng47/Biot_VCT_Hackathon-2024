@@ -202,17 +202,20 @@ export default function PlayerPage() {
               <div className="loader text-center">Loading...</div> {/* This can be a spinner or any loading indicator */}
             </div>
           )}
-          {player.photo_url ? (
+          <div className='w-1/4'>
+                <Image src={"/placeholder/placeholder_woman.png"} width={400} height={400} alt={player.handle} className='rounded-lg object-cover' onLoadingComplete={() => setIsLoading(false)} />
+          </div>
+          {/* {player.photo_url ? (
               <div className='w-1/4 flex'>
                 <Image src={player.photo_url} alt={player.handle} width={400} height={400} className='rounded-lg object-cover' onLoadingComplete={() => setIsLoading(false)} />
               </div>
             ) : (
               <div className='w-1/4'>
-                <Image src={'https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=400&h=400&fit=crop'} width={400} height={400} alt={player.handle} className='rounded-lg object-cover' onLoadingComplete={() => setIsLoading(false)} />
+                <Image src={"/placeholder/placeholder_woman.png"} width={400} height={400} alt={player.handle} className='rounded-lg object-cover' onLoadingComplete={() => setIsLoading(false)} />
               </div>
             
             )
-          }
+          } */}
           {
             playerDetails?(
                 <div className='flex flex-row gap-5 border-2 border-dashed rounded-lg w-3/4 justify-evenly'>

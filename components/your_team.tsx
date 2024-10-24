@@ -10,15 +10,32 @@ function YourTeam({id,tier,image,player_name, first_name, last_name, team, acron
         <div className="flex flex-row gap-2 items-center border rounded-lg border-accent overflow-auto px-3 ">
             
             <div className='flex h-32 w-32 flex-1 items-center justify-center '>
-            <Image  src={image && 
-              image !== "http://static.lolesports.com/players/1643734200321_silhouette_transparent.png" && 
-              image !== "http://static.lolesports.com/players/1675077993344_silhouette_transparent.png" && 
-              image !== "https://lolstatic-a.akamaihd.net/esports-assets/production/player/zerost-4v5o369r.png" && 
-              image !== "https://static.lolesports.com/players/1678371423205_silhouette_transparent.png" && 
-              image !== "https://s3.us-west-2.amazonaws.com/static.lolesports.com/players/default-headshot.png" ? `${image}` 
-              : "https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=50&h=50&fit=crop"} 
-              alt="player_image"  width={200} height={200} className='rounded-lg object-contain'/>
-            </div>
+              {
+                tier == 'game-changer'?
+                <Image  
+                src={"/placeholder/placeholder_woman.png"}
+                // src={image && 
+                //   image !== "http://static.lolesports.com/players/1643734200321_silhouette_transparent.png" && 
+                //   image !== "http://static.lolesports.com/players/1675077993344_silhouette_transparent.png" && 
+                //   image !== "https://lolstatic-a.akamaihd.net/esports-assets/production/player/zerost-4v5o369r.png" && 
+                //   image !== "https://static.lolesports.com/players/1678371423205_silhouette_transparent.png" && 
+                //   image !== "https://s3.us-west-2.amazonaws.com/static.lolesports.com/players/default-headshot.png" ? `${image}` 
+                //   : "https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=50&h=50&fit=crop"} 
+                  alt="player_image"  width={200} height={200} className='rounded-lg object-contain'/>
+                :
+                <Image  
+                src={"/placeholder/placeholder_man.png"}
+                // src={image && 
+                //   image !== "http://static.lolesports.com/players/1643734200321_silhouette_transparent.png" && 
+                //   image !== "http://static.lolesports.com/players/1675077993344_silhouette_transparent.png" && 
+                //   image !== "https://lolstatic-a.akamaihd.net/esports-assets/production/player/zerost-4v5o369r.png" && 
+                //   image !== "https://static.lolesports.com/players/1678371423205_silhouette_transparent.png" && 
+                //   image !== "https://s3.us-west-2.amazonaws.com/static.lolesports.com/players/default-headshot.png" ? `${image}` 
+                //   : "https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=50&h=50&fit=crop"} 
+                  alt="player_image"  width={200} height={200} className='rounded-lg object-contain'/>
+
+              }
+           </div>
 
             <div className='flex flex-col gap-2 w-1/2 text-xs'>
             <div className='flex flex-row items-center gap-2'>

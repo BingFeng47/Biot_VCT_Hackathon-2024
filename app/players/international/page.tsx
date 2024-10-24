@@ -82,11 +82,14 @@ export default function InternationalPlayerPage() {
             {players.map((player) => (
             <Link href={`/players/international/${String(player.id)}`} key={player.id} className="h-72 flex flex-col  items-center bg-accent rounded-sm shadow-lg shadow-muted-foreground dark:shadow-black">
             <Image
-              src={player.photo_url && 
-              player.photo_url !== "http://static.lolesports.com/players/1643734200321_silhouette_transparent.png" && 
-              player.photo_url !== "http://static.lolesports.com/players/1675077993344_silhouette_transparent.png" && 
-              player.photo_url !== "https://lolstatic-a.akamaihd.net/esports-assets/production/player/zerost-4v5o369r.png" && 
-              player.photo_url !== "https://s3.us-west-2.amazonaws.com/static.lolesports.com/players/default-headshot.png" ? `${player.photo_url}` : "https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=50&h=50&fit=crop"}
+              src={
+                "/placeholder/placeholder_man.png"
+              //   player.photo_url && 
+              // player.photo_url !== "http://static.lolesports.com/players/1643734200321_silhouette_transparent.png" && 
+              // player.photo_url !== "http://static.lolesports.com/players/1675077993344_silhouette_transparent.png" && 
+              // player.photo_url !== "https://lolstatic-a.akamaihd.net/esports-assets/production/player/zerost-4v5o369r.png" && 
+              // player.photo_url !== "https://s3.us-west-2.amazonaws.com/static.lolesports.com/players/default-headshot.png" ? `${player.photo_url}` : "https://lolstatic-a.akamaihd.net/esports-assets/production/player/aslan-7nd6ux13.png?w=50&h=50&fit=crop"
+            }
               alt={player.handle}
               width={200}
               height={200}
