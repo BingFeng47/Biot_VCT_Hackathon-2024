@@ -24,12 +24,12 @@ const quickPrompt = [
 export function ChatInit() {
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [responses, setResponse] = useState<{ avatar: string; chat: string }[]>([]);
+  const [responses, setResponse] = useState<{ user: string; chat: string }[]>([]);
   const [error, setError] = useState("");
   const [showElements, setShowElements] = useState(true);
   const [players, setPlayers] = useState<string[]>([]);
 
-  const extractPlayerNames = (responses: { avatar: string; chat: string }[]) => {
+  const extractPlayerNames = (responses: { user: string; chat: string }[]) => {
     const playerNamePattern = /\b(?!VCT\b)(?!KDA\b)(?:[A-Z]{2,4}\d?\s[A-Za-z0-9]+)\b/g;
     const playerNames: string[] = [];
   
@@ -63,21 +63,25 @@ export function ChatInit() {
   const [sessionId] = useState(() => crypto.randomUUID());
 
   // Function to fetch bot response
-  const fetchBotResponse = async (chats: { avatar: string; chat: string }[]) => {
+  const fetchBotResponse = async (chats: { user: string; chat: string }[]) => {
     if (!chats) return; // Early return if no prompt
 
     try {
       setLoading(true); // Set loading state
 
+      // Extract only the latest chat message
+      const latestChat = chats[chats.length - 1]; 
+      const requestBody = {
+        user: latestChat.user,  // Map avatar to 'user'
+        chat: latestChat.chat     // Map chat to the actual message
+      };
 
       const apiResponse = await fetch(`https://ocealab.co/bot?sessionId=${sessionId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
-          chats
-        }), // Send the correct structure
+        body: JSON.stringify(requestBody), // Send the correct structure
       });
 
       if (!apiResponse.ok) {
@@ -111,13 +115,13 @@ export function ChatInit() {
             for (let char of text) {
               setResponse((prev) => {
                 // If previous response is from the bot, update it
-                if (prev.length > 0 && prev[prev.length - 1].avatar === 'bot') {
+                if (prev.length > 0 && prev[prev.length - 1].user === 'bot') {
                   const lastResponse = prev[prev.length - 1];
                   const updatedResponse = { ...lastResponse, chat: lastResponse.chat + char };
                   return [...prev.slice(0, -1), updatedResponse];
                 } else {
                   // Otherwise, add a new bot response
-                  return [...prev, { avatar: 'bot', chat: char }];
+                  return [...prev, { user: 'bot', chat: char }];
                 }
               });
               await new Promise(resolve => setTimeout(resolve, 2)); // Control typing speed (10 ms delay)
@@ -143,8 +147,8 @@ export function ChatInit() {
   const onSubmit = () => {
     if (!inputValue.trim()) return; // Prevent empty submissions
 
-    // Append new chat to the list with the user avatar
-    const userChat = { avatar: 'user', chat: inputValue };
+    // Append new chat to the list with the user user
+    const userChat = { user: 'user', chat: inputValue };
     const updatedResponses = [...responses, userChat];
     setResponse(updatedResponses);
 
