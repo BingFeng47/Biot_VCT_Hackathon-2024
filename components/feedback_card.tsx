@@ -23,7 +23,7 @@ export function FeedbackCard({ avatar, name, email, comment }: FeedbackCardProps
             </div>
         </div>
 
-      <div className="dark:text-neutral-200 pt-6 relative z-20 text-muted-foreground break-words break-before-right">
+      <div className="dark:text-neutral-200 pt-6 relative z-20 text-sm text-muted-foreground break-words break-before-right">
         {comment}
       </div>
     </CardSpotlight>
