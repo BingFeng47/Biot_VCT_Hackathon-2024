@@ -18,7 +18,7 @@ export default async function FeedbackPage() {
         <h1 className="sm:text-4xl font-bold text-center mb-10 text-2xl text-muted-foreground">We'd Like To Hear From You!</h1>
 
         <div className='lg:px-20 lg:mx-15 sm:px-10  px-10'>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center pb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-center pb-8">
             {feedback!.map((feedback, index) => (
               <FeedbackCard key={index} avatar={feedback.avatar} name={feedback.name}  email={feedback.email} comment={feedback.comment}/>
             ))}

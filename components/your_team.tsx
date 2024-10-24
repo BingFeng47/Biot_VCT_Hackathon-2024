@@ -41,13 +41,15 @@ function YourTeam({id,tier,image,player_name, first_name, last_name, team, acron
             <div className='flex flex-row items-center gap-2'>
                 <div>
                 <div className='bg-accent rounded-full'>
-                  {
+                <Image src={'/placeholder/placholder_val.png'} alt="logo" width={40} height={40} className='p-1 object-center'/>
+
+                  {/* {
                 light_logo_url?
                 <Image src={light_logo_url} alt="logo" width={40} height={40} className='p-1 object-center'/>
                 :
                 <Image src={dark_logo_url} alt="logo" width={40} height={40} className='p-1 object-center'/>
                   }
-                
+                 */}
                 </div>
                 </div>
                 <h1 className='text-xs font-bold'>{player_name}</h1> 

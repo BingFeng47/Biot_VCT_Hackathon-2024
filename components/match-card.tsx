@@ -31,18 +31,19 @@ export function MatchCard({datetime, home,rounds, team1, team2, winner, logo1, l
         <div className="flex items-center justify-between mb-4">
           <div className="flex flex-col items-center">
             <img
-              src={logo1}
+              // src={logo1}
+              src={'/placeholder/placeholder_val.png'}
               alt="team1"
-              className="w-20 h-20 object-contain rounded-full mb-2 bg-accent p-3"
+              className="w-14 h-14 object-contain rounded-full mb-2 bg-accent p-3"
             />
             <span className="font-semibold text-sm truncate max-w-20">{team1}</span>
           </div>
           <div className="text-2xl font-bold">VS</div>
           <div className="flex flex-col items-center">
             <img
-              src={logo2}
+              src={'/placeholder/placeholder_val.png'}
               alt="team2"
-              className="w-20 h-20 object-contain rounded-full mb-2 bg-accent p-3"
+              className="w-14 h-14 object-contain rounded-full mb-2 bg-accent p-3"
             />
             <span className="font-semibold text-sm truncate max-w-20">{team2}</span>
           </div>

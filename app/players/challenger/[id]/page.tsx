@@ -150,8 +150,10 @@ export default function PlayerPage() {
 
         {/* Player logo and name */}
         <div className='flex flex-row gap-8 items-center pb-6'>
+        <TeamLogo src={'/placeholder/placeholder_val.png'} alt="Logo"/>
+
           {/* check theme and use didfferent logo */}
-            {currentTheme === 'dark' ? (
+            {/* {currentTheme === 'dark' ? (
             player.light_logo_url ? (
               <TeamLogo src={player.light_logo_url} alt="Light Logo"/>
             ) : (
@@ -165,9 +167,9 @@ export default function PlayerPage() {
             ) : (
               <TeamLogo src={player.light_logo_url} alt="Light Logo" />
             )
-            )}
+            )} */}
               <h1 className='text-6xl font-bold'>
-                <span className="text-muted-foreground">{player.acronym} </span> {player.handle}
+              <span className="text-muted-foreground">{player.acronym} </span> {player.handle}
               </h1>
 
           <div>
