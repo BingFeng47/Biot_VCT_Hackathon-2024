@@ -98,13 +98,14 @@ export function MapAnalysis({ playerDetails }: any) {
             <CardContent className="pb-0">
                 <div className="grid grid-cols-2 gap-2 items-center justify-center">
                     {rankedMaps.slice(0, 4).map(({ map, winRate }, index) => (
-                        <div key={index} className="flex flex-col items-center gap-2">
-                            <Image src={`/map/${map.toLowerCase()}.png`} width={230} height={230} alt={map} className="rounded-lg" />
-                            <div className="flex flex-col justify-center items-center">
-                                <span className="text-sm font-medium">{map}</span>
-                                <span className="text-sm text-muted-foreground">{winRate}%</span>
+                        <div key={index} className="relative flex flex-col items-center gap-2">
+                            <Image src={`/map/${map.toLowerCase()}.png`} width={250} height={250} alt={map} className="rounded-lg" />
+                            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black  to-transparent rounded-b-lg">
+                                <div className="flex flex-col justify-center items-center pb-1">
+                                    <span className="text-sm font-medium text-white text-shadow-gray">{map}</span>
+                                    <span className="text-sm text-muted-foreground">{winRate}%</span>
+                                </div>
                             </div>
-                            
                         </div>
                     ))}
                 </div>
