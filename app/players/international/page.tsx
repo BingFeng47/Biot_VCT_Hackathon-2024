@@ -47,7 +47,7 @@ export default function InternationalPlayerPage() {
       if (error) {
         setError(error);
       } else {
-        setPlayers(data || []);
+        setPlayers(data || []); 
       }
     }
   };

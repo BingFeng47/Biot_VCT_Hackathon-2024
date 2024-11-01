@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import ChatTeam from "./ui/chat-team";
 import ChatBot from "./chat-bot";
 import { Button } from "./ui/button";
+import ChatAnalysis from "./chat-analysis";
+import { toast } from "sonner"
+import { Toast } from "./toast";
 
 // Placeholder for the chat input
 const placeholders = [
@@ -27,7 +30,10 @@ export function ChatInit() {
   const [responses, setResponse] = useState<{ user: string; chat: string }[]>([]);
   const [error, setError] = useState("");
   const [showElements, setShowElements] = useState(true);
-  const [players, setPlayers] = useState<string[]>([]);
+
+  // TO DO: Remove the lsit
+  const [players, setPlayers] = useState<string[]>(["ODK fznnn","FNC Boaster","SEN TENZ","LEV aspas","FNC Derke"]);
+  const [selectedPlayers, setSelectedPlayers] = useState<string[]>([]);
 
   const extractPlayerNames = (responses: { user: string; chat: string }[]) => {
     const playerNamePattern = /\b(?!VCT\b)(?!KDA\b)(?:[A-Z]{2,4}\d?\s[A-Za-z0-9]+)\b/g;
@@ -75,7 +81,7 @@ export function ChatInit() {
         user: latestChat.user,  // Map avatar to 'user'
         chat: latestChat.chat     // Map chat to the actual message
       };
-
+// `https://ocealab.co/bot?sessionId=${sessionId}`
       const apiResponse = await fetch(`https://ocealab.co/bot?sessionId=${sessionId}`, {
         method: 'POST',
         headers: {
@@ -85,7 +91,7 @@ export function ChatInit() {
       });
 
       if (!apiResponse.ok) {
-        console.error('Failed to fetch from API:', apiResponse.statusText);
+        // console.error('Failed to fetch from API:', apiResponse.statusText);
         setError('Error fetching response from API.'); // User feedback
         setLoading(false); // Reset loading state
         return; // Exit if there's an error
@@ -133,11 +139,11 @@ export function ChatInit() {
       };
 
       processStream().catch((error) => {
-        console.error('Stream processing error:', error);
+        // console.error('Stream processing error:', error);
         setError('Error processing stream.'); // User feedback
       });
     } catch (error) {
-      console.error('Fetch error:', error);
+      // console.error('Fetch error:', error);
       setError('Network error occurred.');
       setLoading(false); // Reset loading state
       // User feedback
@@ -157,11 +163,41 @@ export function ChatInit() {
     if (showElements) setShowElements(false); // Hide elements after first submission
   };
 
+  // function to add to team for analysis
+  const handlePlayerClick = (playerName: any) => {
+    setSelectedPlayers((prevPlayers) => {
+      if (prevPlayers.includes(playerName)) {
+        return prevPlayers; // Do not remove if clicked again
+      } else {
+        return [...prevPlayers, playerName];
+      }
+    });
+  };
+
+  const onAddPlayer = (playerName: any) => {
+    setSelectedPlayers((prevPlayers) => {
+      if (prevPlayers.includes(playerName)) {
+        return prevPlayers; // Do not remove if clicked again
+      } else {
+        return [...prevPlayers, playerName];
+      }
+    });
+  };
+  
+  const handleAddAll = () => {
+    setSelectedPlayers (players);
+  };
+
+  const onDeletePlayer = (playerName: any) => {
+    setSelectedPlayers((prevPlayers) => {
+      return prevPlayers.filter((player) => player.trim().toLocaleLowerCase() !== playerName.trim().toLocaleLowerCase());
+    });
+  }
 
   return (
-    <div className="h-screen flex flex-col items-center px-5">
+    <div className="min-h-screen flex flex-col items-center px-5 pb-10">
       {showElements && (
-        <div className="h-screen -mt-20 flex flex-col items-center justify-center">
+        <div className="min-h-screen -mt-20 flex flex-col items-center justify-center">
           <h2 className={`mb-2 sm:mb-5 text-xl text-center sm:text-5xl text-accent-foreground transition-opacity duration-500 ${showElements ? 'opacity-100' : 'opacity-0'}`}>
             <Bot size={30} className="pb-1" /> Build Your Valorant Team
           </h2>
@@ -189,17 +225,23 @@ export function ChatInit() {
       <div className="w-full">
         {!showElements && (
           <div>
-            {players.length > 0 ?
-            <div className="px-10 flex flex-row gap-4"> 
-                <div className="w-3/4">
-                  <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
-                </div>
-                <div className="animate-slide-in-right w-1/4">
-                  <ChatTeam key={players.join(',')} players={players} />
-                </div>
+            {players.length > 0 || selectedPlayers.length > 0?
+            <div className="flex flex-col gap-4">
+              <div className="px-10 flex flex-row gap-4"> 
+                  <div className="w-3/4">
+                    <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
+                  </div>
+                  <div className="animate-slide-in-right w-1/4">
+                    <ChatTeam key={players.join(',')} players={players} onPlayerClick={handlePlayerClick} onAddAllClick={handleAddAll}/>
+  
+                  </div>
+              </div>
+              <div className="animate-slide-in-right px-10">
+                <ChatAnalysis key={selectedPlayers.join(',')} players={selectedPlayers} deletePlayer={onDeletePlayer} addPlayer={onAddPlayer} />
+              </div>
             </div>
             :
-            <div className="w-min-screen">
+            <div className="w-min-screen ">
               <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
             </div>
             }

@@ -6,6 +6,7 @@ import { ThemeButton } from "@/components/theme_button";
 import { BookText, Bot, BotMessageSquare, Github, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import GoogleAnalyticsProvider from "@/components/GoogleAnalyticsProvider";
 
 
 const geistSans = localFont({
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <GoogleAnalyticsProvider />
       
 
       <ThemeProvider
