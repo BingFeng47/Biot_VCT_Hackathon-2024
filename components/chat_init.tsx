@@ -32,7 +32,7 @@ export function ChatInit() {
   const [showElements, setShowElements] = useState(true);
 
   // TO DO: Remove the lsit
-  const [players, setPlayers] = useState<string[]>(["ODK fznnn","FNC Boaster","SEN TENZ","LEV aspas","FNC Derke"]);
+  const [players, setPlayers] = useState<string[]>([]);
   const [selectedPlayers, setSelectedPlayers] = useState<string[]>([]);
 
   const extractPlayerNames = (responses: { user: string; chat: string }[]) => {
