@@ -31,6 +31,8 @@ export function AllPlayers({ addPlayer }: { addPlayer: (playerName: string) => v
     acronym: string;
     player_name: string;
     tier: string;
+    primary_role: string;
+    year: number;
   }
 
   const [players, setPlayers] = useState<Player[]>([]);
@@ -43,27 +45,53 @@ export function AllPlayers({ addPlayer }: { addPlayer: (playerName: string) => v
 
     if (searchValue === "") {
       const { data, error } = await supabase
-        .from("all_players")
+        .from("aws-query-data")
         .select("*")
         .order("tier", { ascending: false });
 
-      if (error) {
-        setError(error);
-      } else {
-        setPlayers(data || []);
+        if (data) {
+          const uniquePlayers = data.reduce((acc: Player[], current: Player) => {
+            const x = acc.find(item => item.player_name === current.player_name);
+            if (!x) {
+          return acc.concat([current]);
+            } else {
+          return acc.map(item => item.player_name === current.player_name && item.year < current.year ? current : item);
+            }
+          }, []);
+  
+        if (error) {
+            setError(error);
+          } else {
+            setPlayers(uniquePlayers);;
+          }
+        
       }
+
     } else {
       const { data, error } = await supabase
-        .from("all_players")
+        .from("aws-query-data")
         .select("*")
-        .or(`handle.ilike.%${search}%,acronym.ilike.%${search}%`)
-        .order("id", { ascending: true });
+        .or(`player_name.ilike.%${search}%`)
+        .order("tier", { ascending: true });
+
+     
+      if (data) {
+        const uniquePlayers = data.reduce((acc: Player[], current: Player) => {
+          const x = acc.find(item => item.player_name === current.player_name);
+          if (!x) {
+        return acc.concat([current]);
+          } else {
+        return acc.map(item => item.player_name === current.player_name && item.year < current.year ? current : item);
+          }
+        }, []);
 
       if (error) {
-        setError(error);
-      } else {
-        setPlayers(data || []);
-      }
+          setError(error);
+        } else {
+          setPlayers(uniquePlayers);;
+        }
+      
+    }
     }
   };
 
@@ -106,6 +134,7 @@ export function AllPlayers({ addPlayer }: { addPlayer: (playerName: string) => v
             />
           <div className='text-center py-3'>
             <p className="text-sm font-bold text-accent-foreground flex-1 ">{player.player_name}</p>
+            <p className='text-xs pb-2 text-muted-foreground'>{player.primary_role}</p>
             <p className='text-xs text-destructive font-bold'>{player.tier.charAt(0).toUpperCase() + player.tier.slice(1)}</p>
             <Button variant="outline" className="text-xs m-2" onClick={() => (addPlayer(player.player_name))}>
               <PlusIcon className="mr-2" /> Add

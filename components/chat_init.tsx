@@ -243,6 +243,7 @@ export function ChatInit() {
             :
             <div className="w-min-screen ">
               <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
+              <button className="text-background" onClick={()=>setPlayers(["ODK fznnn","FNC Boaster","SEN TENZ","LEV aspas","FNC Derke"])}>s</button>
             </div>
             }
           </div>

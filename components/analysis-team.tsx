@@ -60,6 +60,7 @@ function AnalysisTeam({id,tier,handle,image,player_name, first_name, last_name, 
             .select('*')
             .eq('player_handle', handle)
             .eq('year', year)
+            .limit(1)
             .single();
           return { data, error };
         };

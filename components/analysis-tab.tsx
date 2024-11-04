@@ -36,6 +36,7 @@ export function AnalysisTab({ players }: any) {
           const { data, error } = await supabase
             .from('aws-query-data')
             .select('primary_role')
+            .order('year', { ascending: false })
             .eq('player_name', player.player_name.trim())
             .limit(1) // Get only the latest row
             .single();

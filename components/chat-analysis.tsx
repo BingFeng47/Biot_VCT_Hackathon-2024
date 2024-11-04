@@ -23,6 +23,8 @@ interface Player {
   acronym: string;
   dark_logo_url: string;
   light_logo_url: string;
+  updated_at: string;
+  created_at: string;
 }
 
 function ChatAnalysis({ players: initialPlayers, deletePlayer, addPlayer }: { players: string[], deletePlayer: (playerName: string) => void, addPlayer:  (playerName: string) => void}) {
@@ -39,15 +41,35 @@ function ChatAnalysis({ players: initialPlayers, deletePlayer, addPlayer }: { pl
       const { data: playersData, error: playersError } = await supabase
     .from('all_players')
     .select('*')
+    .order('created_at', { ascending: false })
     .or(formattedPlayers.map(player => `handle.ilike.${player}`).join(','));
 
+      // if (playersError) {
+      //   // console.error('Error fetching players:', playersError);
+      //   return;
+      // }
+      // // console.log(playersData)
+      // setPlayers(playersData || []); // Update state with fetched data
+
+
+      if (playersData) {
+        const uniquePlayers = playersData.reduce((acc: Player[], current: Player) => {
+          const x = acc.find(item => item.player_name === current.player_name);
+          if (!x) {
+        return acc.concat([current]);
+          } else {
+        return acc.map(item => item.player_name === current.player_name && item.created_at < current.created_at ? current : item);
+          }
+        }, []);
+  
       if (playersError) {
-        // console.error('Error fetching players:', playersError);
-        return;
-      }
-      // console.log(playersData)
-      setPlayers(playersData || []); // Update state with fetched data
+          setError(playersError);
+        } else {
+          setPlayers(uniquePlayers);;
+        }
     };
+  }
+    
 
   useEffect(() => {
     if (initialPlayers.length > 0) {
@@ -94,3 +116,7 @@ function ChatAnalysis({ players: initialPlayers, deletePlayer, addPlayer }: { pl
 }
 
 export default ChatAnalysis;
+
+function setError(playersError: never) {
+    throw new Error('Function not implemented.');
+  }
