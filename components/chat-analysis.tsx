@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import YourTeam from './your_team';
 import { AnalysisTab } from './analysis-tab';
 import AnalysisTeam from './analysis-team';
-import { Search, Trash } from 'lucide-react';
+import { Bot, Search, Trash } from 'lucide-react';
 import { Button } from './ui/button';
 import { AllPlayers } from './all_players';
 
@@ -27,7 +27,7 @@ interface Player {
   created_at: string;
 }
 
-function ChatAnalysis({ players: initialPlayers, deletePlayer, addPlayer }: { players: string[], deletePlayer: (playerName: string) => void, addPlayer:  (playerName: string) => void}) {
+function ChatAnalysis({ players: initialPlayers, deletePlayer, addPlayer, sendTeamStats }: { players: string[], deletePlayer: (playerName: string) => void, addPlayer:  (playerName: string) => void, sendTeamStats: (stats: string) => void }) {
   const supabase = createClientComponentClient();
   const [players, setPlayers] = useState<Player[]>([]);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -71,6 +71,11 @@ function ChatAnalysis({ players: initialPlayers, deletePlayer, addPlayer }: { pl
   }
     
 
+  const teamComposition = () => {
+    const teamPlayers = players.map(player => player.player_name).join(', ')
+    return "Please analyse this team: " + teamPlayers;
+  }
+
   useEffect(() => {
     if (initialPlayers.length > 0) {
       fetchPlayers();
@@ -88,7 +93,12 @@ function ChatAnalysis({ players: initialPlayers, deletePlayer, addPlayer }: { pl
           <CardTitle>Team Stats and Analysis</CardTitle>
           <div className='flex flex-row gap-2'>
           <AllPlayers addPlayer={addPlayer}></AllPlayers>
-          <Button variant='destructive' className=''>Analyze this team</Button>
+          {
+          players.length > 0?
+            <Button variant='destructive' size={'icon'} className='p-2'><Bot className='' onClick={() => sendTeamStats(teamComposition())}/> </Button>
+          :
+          <div></div>
+          }
           </div>
         </CardHeader>
         <CardContent>

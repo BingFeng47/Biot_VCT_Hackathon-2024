@@ -194,6 +194,18 @@ export function ChatInit() {
     });
   }
 
+  const onDemo = () =>{
+    setPlayers(["LEV aspas","FNC Leo","FNC Alfajer","JDG Viva","DRX MaKo"])
+  }
+
+  const sendTeamStats = (stats: string) => {
+    const userChat = { user: 'user', chat: stats };
+    const updatedResponses = [...responses, userChat];
+    setResponse(updatedResponses);
+
+    fetchBotResponse(updatedResponses); // Send the updated responses to the bot
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center px-5 pb-10">
       {showElements && (
@@ -229,7 +241,7 @@ export function ChatInit() {
             <div className="flex flex-col gap-4">
               <div className="px-10 flex flex-row gap-4"> 
                   <div className="w-3/4">
-                    <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
+                    <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} onDemo={onDemo}/>
                   </div>
                   <div className="animate-slide-in-right w-1/4">
                     <ChatTeam key={players.join(',')} players={players} onPlayerClick={handlePlayerClick} onAddAllClick={handleAddAll}/>
@@ -237,13 +249,12 @@ export function ChatInit() {
                   </div>
               </div>
               <div className="animate-slide-in-right px-10">
-                <ChatAnalysis key={selectedPlayers.join(',')} players={selectedPlayers} deletePlayer={onDeletePlayer} addPlayer={onAddPlayer} />
+                <ChatAnalysis key={selectedPlayers.join(',')} players={selectedPlayers} deletePlayer={onDeletePlayer} addPlayer={onAddPlayer} sendTeamStats={sendTeamStats}/>
               </div>
             </div>
             :
             <div className="w-min-screen ">
-              <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} />
-              <button className="text-background" onClick={()=>setPlayers(["ODK fznnn","FNC Boaster","SEN TENZ","LEV aspas","FNC Derke"])}>s</button>
+              <ChatBot loading={loading} response={responses} inputValue={inputValue} setInputValue={setInputValue} onSubmit={onSubmit} onDemo={onDemo} />
             </div>
             }
           </div>

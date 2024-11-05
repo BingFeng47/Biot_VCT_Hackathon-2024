@@ -62,7 +62,7 @@ function ChatTeam({ players: initialPlayers, onPlayerClick, onAddAllClick }: { p
         <CardHeader>
           <CardTitle className='flex flex-row items-center justify-between'>
             <p>Players</p>
-            <Button className="text-xs p-2" variant={'destructive'} onClick={()=>onAddAllClick()} >Add All</Button>
+            <Button  variant={'destructive'} onClick={()=>onAddAllClick()} >Add All</Button>
           </CardTitle>
           
         </CardHeader>

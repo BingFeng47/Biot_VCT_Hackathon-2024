@@ -5,6 +5,27 @@ Youtube: [Watch Our Demo Here!](https://youtu.be/2mgYJSymY9M)
 
 The Valorant Team Builder AI Assistant is designed to help users create the best possible team for competing in international Valorant tournaments. By leveraging historical data and advanced LLM, this assistant provides reliable and strategic team formation suggestions.
 
+---
+
+### 🙊 Important Note on AWS Bedrock Throttling Issue
+
+> Due to current **AWS Bedrock throttling limitations**, the BIOT Bot return error messages in the chat. If you encounter any issues with the bot not functioning as expected, please try again after a short wait.\
+> \
+> Since player suggestions by the BIOT Bot are displayed visually only when the bot is functioning, we've added a **Demo** button to simulate this feature. If you experience issues due to throttling, feel free to use the Demo mode to see how team suggestions and team analyzer work.
+
+## 🚀 BIOT V2 Updates
+
+In BIOT V2, we're introducing a **Team Analyzer** that brings more flexibility and insight into building your dream team. Here’s what’s new:
+
+- **Enhanced Bot Responses**: The BIOT Bot now provides more detailed and context-aware answers, helping you strategize even more effectively
+- **Build Your Own Team**: Add or drop players easily to customize and assemble your ideal team lineup.
+- **One-Click Team Analysis**: Instantly analyze your selected team with a single click, providing comprehensive stats including:
+- **Overall Combat Score**: Get a summary of your team's combat effectiveness.
+- **Best Maps**: View team performance across different maps to strategize optimal map choices.
+- **Dynamic Visual Charts**: The analysis includes beautiful, easy-to-understand visual charts that make stats clearer, helping you make more informed decisions quickly.
+
+These enhancements make BIOT V2 a more powerful and dynamic tool for strategizing and building top-tier teams!
+
 ## 🔑 Key Features
 
 - Role Specialization: Ensures balanced team compositions by considering player roles.
