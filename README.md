@@ -9,17 +9,21 @@ The Valorant Team Builder AI Assistant is designed to help users create the best
 
 ### 🙊 Important Note on AWS Bedrock Throttling Issue
 
-> Due to current **AWS Bedrock throttling limitations**, the BIOT Bot return error messages in the chat. If you encounter any issues with the bot not functioning as expected, please try again after a short wait.\
+> Due to current **AWS Bedrock throttling limitations**, the BIOT Bot might return error messages in the chat. If you encounter any issues with the bot not functioning as expected, please try again after a short wait.\
 > \
-> Since player suggestions by the BIOT Bot are displayed visually only when the bot is functioning, we've added a **Demo** button to simulate this feature. If you experience issues due to throttling, feel free to use the Demo mode to see how team suggestions and team analyzer work.
+> Since player suggestions by the BIOT Bot are displayed visually only when the bot is functioning, we've added a **'Demo'** button to simulate this feature. If you experience issues due to throttling, feel free to use the Demo mode to see how team suggestions and team analyzer work.
+
+### What would we do if we didn’t have throttling issues?
+
+Although we have successfully enabled the bot to respond effectively to prompts using available data—such as players’ recent performance, team composition strengths and weaknesses, and map performance analysis—persistent throttling issues have restricted our capacity to thoroughly test and enhance its outputs. As a result, we’ve only managed to run it a limited number of times, leaving substantial room for improvement in response accuracy, consistency, and depth. While the bot’s answers are persuasive, we believe there’s significant potential for enhancement: we could integrate more diverse data sources, refine contextual understanding to provide more tailored responses and optimize performance for better real-time interaction with shorter bot loading time.
 
 ## 🚀 BIOT V2 Updates
 
 In BIOT V2, we're introducing a **Team Analyzer** that brings more flexibility and insight into building your dream team. Here’s what’s new:
 
-- **Enhanced Bot Responses**: The BIOT Bot now provides more detailed and context-aware answers, helping you strategize even more effectively
+- **Enhanced Bot Responses**: The BIOT Bot now provides more detailed and context-aware answers, helping you strategize even more effectively.
 - **Build Your Own Team**: Add or drop players easily to customize and assemble your ideal team lineup.
-- **One-Click Team Analysis**: Instantly analyze your selected team with a single click, providing comprehensive stats including:
+- **One-Click Team Analysis**: Instantly analyze your selected team with a single click, providing comprehensive stats.
 - **Overall Combat Score**: Get a summary of your team's combat effectiveness.
 - **Best Maps**: View team performance across different maps to strategize optimal map choices.
 - **Dynamic Visual Charts**: The analysis includes beautiful, easy-to-understand visual charts that make stats clearer, helping you make more informed decisions quickly.

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ScrollArea } from '@radix-ui/react-scroll-area';
-import { Loader, Loader2, LoaderPinwheel } from 'lucide-react';
+import { Info, Loader, Loader2, LoaderPinwheel } from 'lucide-react';
 import MarkdownRenderer from './md';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import ChatBubble from './chat-bubble';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip';
 
 function ChatBot({loading, response, inputValue, setInputValue, onSubmit, onDemo}: any) {
     return (
@@ -14,7 +15,8 @@ function ChatBot({loading, response, inputValue, setInputValue, onSubmit, onDemo
             <Card className="min-w-screen">
                 <CardHeader className='flex flex-row items-center justify-between'>
                     <CardTitle>Biot Team Builder</CardTitle>
-                    <Button variant={'destructive'} onClick={onDemo}>Demo</Button>
+                    <Button variant={'destructive'}  onClick={onDemo} className=''>Demo 
+                    </Button>
                 </CardHeader>
                 
                 <CardContent className="min-w-screen">
